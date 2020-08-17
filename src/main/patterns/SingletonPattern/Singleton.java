@@ -1,4 +1,4 @@
-package main.java.patterns.SingletonPattern;
+package main.patterns.SingletonPattern;
 
 public final class Singleton {
     private static Singleton object;
