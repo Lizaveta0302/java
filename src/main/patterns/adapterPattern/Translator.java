@@ -1,4 +1,4 @@
-package main.patterns.adapter;
+package main.patterns.adapterPattern;
 
 public interface Translator {
     void translate();
