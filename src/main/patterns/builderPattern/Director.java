@@ -3,7 +3,7 @@ package main.patterns.builderPattern;
 public class Director {
     public void constructUsualHouse(Builder builder) {
         builder.setType(Type.USUAL_HOUSE);
-        builder.setWalls(new Wall("brick"));
+        builder.setWalls(new Wall("redbrick"));
         builder.setRoof(new Roof(5));
     }
     public void constructAmericanHouse(Builder builder) {

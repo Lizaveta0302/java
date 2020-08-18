@@ -8,7 +8,7 @@ public class Main {
         director.constructUsualHouse(builder);
 
         House house = builder.getResult();
-        System.out.println("House built:\n" + house.getType());
+        System.out.println("House built: " + house.getType());
 
     }
 }
