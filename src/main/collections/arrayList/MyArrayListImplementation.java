@@ -3,8 +3,8 @@ package main.collections.arrayList;
 import java.util.Arrays;
 
 public class MyArrayListImplementation<T> {
-    private int size = 0;
     private static final int DEFAULT_CAPACITY = 5;
+    private int size = 0;
     private Object elements[];
 
     public MyArrayListImplementation() {

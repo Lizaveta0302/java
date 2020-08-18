@@ -1,8 +1,8 @@
 package main.collections.linkedList;
 
 public class LinkedList {
-    private static Node head;
     private static int numNodes;
+    private static Node head;
 
     public LinkedList(Object dat) {
         head = new Node(dat);

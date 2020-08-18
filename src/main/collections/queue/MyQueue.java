@@ -3,9 +3,9 @@ package main.collections.queue;
 import java.io.IOException;
 
 public class MyQueue<T> {
+    private int size;
     private Node<T> front;
     private Node<T> back;
-    private int size;
 
     public MyQueue() {
         back = null;
