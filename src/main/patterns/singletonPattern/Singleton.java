@@ -10,7 +10,11 @@ public final class Singleton {
 
     public static Singleton getObject(String value) {
         if (object == null) {
-            object = new Singleton(value);
+            synchronized (Singleton.class) {
+                if (object == null) {
+                    object = new Singleton(value);
+                }
+            }
         }
         return object;
     }
