@@ -9,18 +9,13 @@ public class BubbleSort {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int y = arr.length - 1; y > i; y--) {
                 if (arr[y - 1] > arr[y]) {
-                    swap(arr, y, y - 1);
-
+                    int c = arr[y];
+                    arr[y] = arr[y - 1];
+                    arr[y - 1] = c;
                 }
             }
         }
         return arr;
-    }
-
-    public static void swap(int[] arr, int a, int b) {
-        int c = arr[a];
-        arr[a] = arr[b];
-        arr[b] = c;
     }
 
     public static void main(String[] args) {
