@@ -43,6 +43,8 @@ public class Server {
             }
             in.println(answer);
             System.out.println("Server: " + answer);
+            if (outputLine.equals("Have a good day!"))
+                break;
         }
     }
 

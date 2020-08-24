@@ -34,12 +34,17 @@ public class Client {
         while (true) {
             answerFromServer = out.readLine();
             System.out.println("Server: " + answerFromServer);
+            if (answerFromServer.equals("Have a good day!")) {
+                break;
+            }
             input = inputLine.readLine();
             in.println(input);
             System.out.println("Client:" + input);
-        }
 
+        }
     }
+
+}
 
     public static void main(String[] args) {
         Client client = new Client();

@@ -24,15 +24,7 @@ public class BotLogic {
                 break;
             }
             case PROCEED: {
-                if (input.equalsIgnoreCase("yes")) {
-                    output = feels[0].concat(questions[0]).concat(questions[1]);
-                } else if (input.equalsIgnoreCase("no")) {
-                    output = "As you wish! If you change your mind, come back, we'll talk.";
-                    state = State.STOP;
-                } else {
-                    output = feels[(int) (Math.random() * 6)];
-                    //output = "Sorry..I dont understand you";
-                }
+                output = continueCommunicate(input);
                 break;
             }
             case STOP: {
@@ -43,6 +35,19 @@ public class BotLogic {
             default:
                 output = "Lets start over..";
                 state = State.START;
+        }
+        return output;
+    }
+
+    private String continueCommunicate(String input) {
+        if (input.equalsIgnoreCase("yes")) {
+            output = feels[0].concat(questions[0]).concat(questions[1]);
+        } else if (input.equalsIgnoreCase("no")) {
+            output = "As you wish! If you change your mind, come back, we'll talk.";
+            state = State.STOP;
+        } else {
+            output = feels[(int) (Math.random() * 6)];
+            //output = "Sorry..I dont understand you";
         }
         return output;
     }
