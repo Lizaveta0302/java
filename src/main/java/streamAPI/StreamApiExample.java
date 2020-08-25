@@ -1,7 +1,6 @@
 package streamAPI;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -12,9 +11,7 @@ public class StreamApiExample {
 
     public static List<Integer> processMultiples(List<Integer> list) {
         stream = list.stream().sorted();
-        return stream.filter(e -> {
-            return (e % 2000000) == 0;
-        }).collect(Collectors.toList());
+        return stream.filter(e -> (e % 2000000) == 0).collect(Collectors.toList());
     }
 
     public static List<Integer> increaseValue(List<Integer> list) {
