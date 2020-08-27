@@ -1,10 +1,15 @@
 package internetShop;
 
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class ProductListHandler {
 
+    @Getter
     private static List<Product> prod = new ArrayList<>();
 
     public static void init() {
@@ -20,11 +25,7 @@ public class ProductListHandler {
     }
 
     public static void showProductList() {
-        System.out.println("Product List: ");
-        prod.forEach(p -> System.out.println(p.toString()));
-    }
-
-    public static List<Product> getProd() {
-        return prod;
+        log.info("Product List: ");
+        prod.forEach(System.out::println);
     }
 }

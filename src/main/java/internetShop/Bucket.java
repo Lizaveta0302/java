@@ -1,27 +1,17 @@
 package internetShop;
 
+import lombok.Data;
+import lombok.Getter;
+
 import java.util.ArrayList;
 
+@Data
 public class Bucket {
 
+    @Getter
     private static ArrayList<Product> products = new ArrayList<>();
 
-    public Bucket() {
-    }
-
-    public Bucket(ArrayList<Product> product) {
-        products = product;
-    }
-
-    public void addProduct(Product prod) {
+    public static void addProduct(Product prod) {
         products.add(prod);
-    }
-
-    public ArrayList<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(ArrayList<Product> product) {
-        products = product;
     }
 }

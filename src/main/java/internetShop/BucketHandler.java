@@ -1,33 +1,30 @@
 package internetShop;
 
-import java.util.Scanner;
+import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
+import java.util.Optional;
+
+@Slf4j
 public class BucketHandler {
+    @Getter
     private static Bucket bucket = new Bucket();
 
-    private static Scanner sc = new Scanner(System.in);
-
     public static void addToTheBucket(int num) {
-        Product product = ProductListHandler.getProd().get(num);
-        if (product != null) {
-            bucket.addProduct(product);
-        }
+        Optional<Product> product = Optional.ofNullable(ProductListHandler.getProd().get(num));
+        product.ifPresent(Bucket::addProduct);
     }
 
     public static void deleteFromBucket(int del) {
-        bucket.getProducts().remove(del);
+        Bucket.getProducts().remove(del);
     }
 
     public static void clearBucket() {
-        BucketHandler.getBucket().getProducts().clear();
+        Bucket.getProducts().clear();
     }
 
     public static void showProductsInTheBucket() {
-        System.out.println("Products in the bucket: ");
-        bucket.getProducts().stream().forEach(p -> System.out.println(p.toString()));
-    }
-
-    public static Bucket getBucket() {
-        return bucket;
+        log.info("Products in the bucket: ");
+        Bucket.getProducts().forEach(System.out::println);
     }
 }
