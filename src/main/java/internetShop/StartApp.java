@@ -1,5 +1,9 @@
 package internetShop;
 
+import internetShop.bucket.Bucket;
+import internetShop.bucket.BucketHandler;
+import internetShop.product.ProductListHandler;
+
 import java.util.Scanner;
 
 import static java.lang.System.exit;
@@ -7,7 +11,9 @@ import static java.lang.System.exit;
 public class StartApp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         ProductListHandler.init();
+        BucketHandler.deserialize();
         System.out.println("It is an Internet Shop! Please, choose the action you want to do ");
         System.out.println(" 1-Show product list \n 2-Add product to the bucket \n 3-Show products in the bucket \n 4-Delete product from the bucket \n 5-Clear the bucket \n 6-exit");
         while (true) {
@@ -37,7 +43,7 @@ public class StartApp {
                     BucketHandler.showProductsInTheBucket();
                     System.out.println("Enter the product number to be deleted: ");
                     String in = sc.nextLine();
-                    if (Integer.parseInt(in) < BucketHandler.getBucket().getProducts().size()) {
+                    if (Integer.parseInt(in) < Bucket.getProducts().size()) {
                         BucketHandler.deleteFromBucket(Integer.parseInt(in));
                     } else {
                         System.out.println("Wrong number");
@@ -57,6 +63,7 @@ public class StartApp {
                     break;
                 }
                 case "6": {
+                    BucketHandler.serialize();
                     System.out.println("Bye");
                     exit(0);
                 }

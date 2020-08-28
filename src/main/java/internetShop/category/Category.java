@@ -1,4 +1,4 @@
-package internetShop;
+package internetShop.category;
 
 public interface Category {
 }

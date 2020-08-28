@@ -1,8 +1,8 @@
 package internetShop.test;
 
-import internetShop.BucketHandler;
-import internetShop.NotFoodCategory;
-import internetShop.Product;
+import internetShop.bucket.BucketHandler;
+import internetShop.category.NotFoodCategory;
+import internetShop.product.Product;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertTrue;

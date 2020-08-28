@@ -1,9 +1,10 @@
 package internetShop.test;
 
-import internetShop.NotFoodCategory;
-import internetShop.ProductListHandler;
+import internetShop.category.NotFoodCategory;
+import internetShop.product.ProductListHandler;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class ProductHandlerTest {
@@ -11,7 +12,7 @@ public class ProductHandlerTest {
     @Test
     public void initTesting() {
         ProductListHandler.init();
-        assertTrue(ProductListHandler.getProd().size() == 4);
+        assertEquals(4, ProductListHandler.getProd().size());
     }
 
     @Test
