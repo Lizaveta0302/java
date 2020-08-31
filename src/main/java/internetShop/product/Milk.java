@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class Milk extends Product {
 
+    private static final long serialVersionUID = -9042481779980318403L;
     @Getter
     @Setter
     private double fatContent;

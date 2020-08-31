@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @Data
 public class Bucket implements Serializable {
 
+    private static final long serialVersionUID = 2857621923888034157L;
     @Getter
     @Setter
     private static ArrayList<Product> products = new ArrayList<>();
