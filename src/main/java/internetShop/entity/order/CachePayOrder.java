@@ -1,7 +1,7 @@
-package internetShop.order;
+package internetShop.entity.order;
 
-import internetShop.bucket.Bucket;
-import internetShop.currency.ConvertCurrencyStrategy;
+import internetShop.entity.bucket.Bucket;
+import internetShop.entity.currency.ConvertCurrencyStrategy;
 import lombok.Data;
 
 @Data

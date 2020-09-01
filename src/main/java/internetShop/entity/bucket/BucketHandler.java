@@ -1,7 +1,7 @@
-package internetShop.bucket;
+package internetShop.entity.bucket;
 
-import internetShop.product.ProductListHandler;
-import internetShop.product.Product;
+import internetShop.entity.product.ProductListHandler;
+import internetShop.entity.product.Product;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,8 +1,8 @@
-package internetShop.product;
+package internetShop.entity.product;
 
-import internetShop.category.Category;
-import internetShop.category.FoodCategory;
-import internetShop.category.NotFoodCategory;
+import internetShop.entity.category.Category;
+import internetShop.entity.category.FoodCategory;
+import internetShop.entity.category.NotFoodCategory;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 

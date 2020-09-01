@@ -1,6 +1,6 @@
-package internetShop.product;
+package internetShop.entity.product;
 
-import internetShop.category.Category;
+import internetShop.entity.category.Category;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

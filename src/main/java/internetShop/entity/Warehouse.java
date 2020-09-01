@@ -1,8 +1,8 @@
-package internetShop;
+package internetShop.entity;
 
 import internetShop.customerAnnotation.ExpiredProduct;
 import internetShop.customerAnnotation.ExpiredProductAnnotationAnalyzer;
-import internetShop.product.Product;
+import internetShop.entity.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

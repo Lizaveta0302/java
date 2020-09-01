@@ -1,4 +1,4 @@
-package internetShop.currency;
+package internetShop.entity.currency;
 
 public class USDCurrencyConvert implements ConvertCurrencyStrategy {
 

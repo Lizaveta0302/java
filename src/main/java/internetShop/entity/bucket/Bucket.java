@@ -1,6 +1,6 @@
-package internetShop.bucket;
+package internetShop.entity.bucket;
 
-import internetShop.product.Product;
+import internetShop.entity.product.Product;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

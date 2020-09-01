@@ -1,9 +1,8 @@
 package internetShop;
 
-import internetShop.bucket.Bucket;
-import internetShop.bucket.BucketHandler;
-import internetShop.db.DBConnectionHandler;
-import internetShop.product.ProductListHandler;
+import internetShop.entity.bucket.Bucket;
+import internetShop.entity.bucket.BucketHandler;
+import internetShop.entity.product.ProductListHandler;
 
 import java.util.Scanner;
 
@@ -14,7 +13,6 @@ public class StartApp {
         Scanner sc = new Scanner(System.in);
         ProductListHandler.init();
         //BucketHandler.deserialize();
-        DBConnectionHandler.connect();
         System.out.println("It is an Internet Shop! Please, choose the action you want to do ");
         System.out.println(" 1-Show product list \n 2-Add product to the bucket \n 3-Show products in the bucket \n 4-Delete product from the bucket \n 5-Clear the bucket \n 6-exit");
         while (true) {

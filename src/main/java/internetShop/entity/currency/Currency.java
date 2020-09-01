@@ -1,4 +1,4 @@
-package internetShop.currency;
+package internetShop.entity.currency;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
