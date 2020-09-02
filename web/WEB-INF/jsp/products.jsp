@@ -5,7 +5,7 @@
 <ui:html title="Products list">
     <div style="margin: auto; text-align: center">
         <h1>List of products: </h1>
-        <ul>
+        <ul style="list-style-type: none">
             <p>Total products : ${fn:length(products)}</p>
             <c:forEach var="product" items="${products}">
                 <li>

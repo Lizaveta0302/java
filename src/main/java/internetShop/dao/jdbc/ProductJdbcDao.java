@@ -9,14 +9,11 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 public class ProductJdbcDao extends JdbcDaoSupport implements ProductDao {
-
-    private RowMapper<Product> productRowMapper = (resultSet, i) -> {
-        Product product = new Product();
-        product.setName(resultSet.getString("name"));
-        product.setPrice(resultSet.getDouble("price"));
-        product.setId(resultSet.getLong("id_product"));
-        return product;
-    };
+    private RowMapper<Product> productRowMapper = (resultSet, i) ->
+            (Product) new Product()
+                    .setName(resultSet.getString("name"))
+                    .setPrice(resultSet.getDouble("price"))
+                    .setId(resultSet.getLong("id_product"));
 
     @Override
     public void create(Product product) {

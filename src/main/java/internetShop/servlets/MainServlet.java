@@ -1,8 +1,5 @@
 package internetShop.servlets;
 
-import internetShop.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

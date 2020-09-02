@@ -9,10 +9,10 @@ import java.util.Objects;
 
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserDao userDao;
 
-    public void setUserDao(UserDao userDao) {
+    @Autowired
+    public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
 
