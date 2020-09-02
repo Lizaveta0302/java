@@ -1,8 +1,8 @@
 package internetShop.customerAnnotation;
 
-import internetShop.Warehouse;
-import internetShop.category.Category;
-import internetShop.product.Product;
+import internetShop.entity.Warehouse;
+import internetShop.entity.category.Category;
+import internetShop.entity.product.Product;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
