@@ -11,9 +11,10 @@
             <h4><a href="/registration">Registration</a></h4>
         </sec:authorize>
         <sec:authorize access="isAuthenticated()">
+            <h4><a href="/bucket/${pageContext.request.userPrincipal}">My bucket</a></h4>
             <h4><a href="/logout">Logout</a></h4>
         </sec:authorize>
         <h4><a href="/admin">Admin Page</a></h4>
-        <h4><a href="/products">Products page</a></h4>
+        <h4><a href="/products/listProducts">Products page</a></h4>
     </div>
 </ui:html>

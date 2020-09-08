@@ -10,7 +10,7 @@
             <c:forEach var="product" items="${products}">
                 <li>
                     <c:out value="${fn:toUpperCase(product)}"/>
-                    <a style="color: red" href="/deleteProduct/${product.id}">
+                    <a style="color: red" href="/products/deleteProduct/${product.id}">
                         <button>Delete product</button>
                     </a>
                 </li>

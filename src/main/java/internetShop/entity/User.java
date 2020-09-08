@@ -1,8 +1,10 @@
 package internetShop.entity;
 
+import internetShop.entity.bucket.Bucket;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -28,6 +30,8 @@ public class User implements UserDetails {
 
     private String password;
 
+    @OneToOne(mappedBy = "user")
+    private Bucket bucket;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
@@ -35,16 +39,6 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getRoles();
-    }
-
-    @Override
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String getUsername() {
-        return username;
     }
 
     @Override
