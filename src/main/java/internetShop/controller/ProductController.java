@@ -1,4 +1,4 @@
-package internetShop.mvc;
+package internetShop.controller;
 
 import internetShop.entity.product.Product;
 import internetShop.service.ProductService;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/products")
 public class ProductController {
 
     private ProductService productService;
@@ -19,11 +20,11 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/")
-    public String main(Model model) {
+    @GetMapping("/listProducts")
+    public String products(Model model) {
         List<Product> products = productService.getProducts();
         model.addAttribute("products", products);
-        return "/products";
+        return "products";
     }
 
     @GetMapping("/deleteProduct/{id}")
