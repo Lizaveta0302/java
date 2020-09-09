@@ -4,10 +4,11 @@ import internetShop.entity.product.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public interface ProductService {
-    Product getProduct(Long id);
+    Optional<Product> getProduct(Long id);
 
     Product getProduct(String name);
 

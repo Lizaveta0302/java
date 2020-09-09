@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByCountry(Country country);
 
     List<Product> findAllByBucket(Bucket bucket);
+
+    Product findByName(String name);
 }

@@ -21,11 +21,11 @@ public class ExpiredProductAnnotationAnalyzer {
             SimpleDateFormat sdf;
             try {
                 if (!Objects.isNull(product) && count > 0) {
-                    Class<Category> categoryClass = (Class<Category>) Class.forName(product.getCategory().getClass().getName());
+                    Class<Category> categoryClass = (Class<Category>) Class.forName(product.getBucket().getClass().getName());
                     Field[] fields = categoryClass.getDeclaredFields();
                     for (Field field : fields) {
                         field.setAccessible(true);
-                        expiredDate = (String) field.get(product.getCategory());
+                        expiredDate = (String) field.get(product.getId());
                     }
                     sdf = new SimpleDateFormat("yyyy-MM-dd");
                     expiredDateProduct = sdf.parse(expiredDate);

@@ -1,7 +1,7 @@
 package internetShop.controller;
 
 import internetShop.entity.User;
-import internetShop.service.UserService;
+import internetShop.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,24 +13,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RegistrationController {
 
-    @Autowired
-    private UserService userService;
+    private static final String registration = "/registration";
 
-    @GetMapping("/registration")
+    @Autowired
+    private UserServiceImpl userService;
+
+    @GetMapping(registration)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-        return "/registration";
+        return registration;
     }
 
-    @PostMapping("/registration")
+    @PostMapping(registration)
     public String registryUser(@ModelAttribute("userForm") User userForm,
                                Model model, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/registration";
+            return registration;
         }
         if (!userService.saveUser(userForm)) {
             model.addAttribute("usernameError", "User with such username already exists.");
-            return "/registration";
+            return registration;
         }
         return "redirect:/";
     }

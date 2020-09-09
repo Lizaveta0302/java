@@ -4,14 +4,12 @@ import internetShop.entity.bucket.Bucket;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -30,11 +28,12 @@ public class User implements UserDetails {
 
     private String password;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_bucket", referencedColumnName = "id_bucket")
     private Bucket bucket;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private Set<Role> roles;
+    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

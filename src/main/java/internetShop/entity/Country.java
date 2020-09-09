@@ -1,31 +1,30 @@
-package internetShop.entity.bucket;
+package internetShop.entity;
 
-import internetShop.entity.User;
 import internetShop.entity.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Bucket {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_bucket")
+    @Column(name = "id_country")
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "bucket")
-    private List<Product> products;
+    private String name;
 
-    @OneToOne(mappedBy = "bucket")
-    private User user;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "country")
+    @Fetch(value = FetchMode.SELECT)
+    private List<Product> products;
 }
