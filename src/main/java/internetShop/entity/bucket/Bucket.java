@@ -1,22 +1,28 @@
 package internetShop.entity.bucket;
 
+import internetShop.entity.User;
 import internetShop.entity.product.Product;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.Set;
 
 @Data
-public class Bucket implements Serializable {
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class Bucket {
 
-    private static final long serialVersionUID = 2857621923888034157L;
-    @Getter
-    @Setter
-    private static ArrayList<Product> products = new ArrayList<>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_bucket")
+    private Long id;
 
-    public static void addProduct(Product prod) {
-        products.add(prod);
-    }
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "bucket")
+    private Set<Product> products;
+
+    @OneToOne(mappedBy = "bucket")
+    private User user;
 }

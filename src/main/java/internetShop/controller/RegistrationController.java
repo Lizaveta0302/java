@@ -13,24 +13,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RegistrationController {
 
+    private static final String registration = "/registration";
+
     @Autowired
     private UserService userService;
 
-    @GetMapping("/registration")
+    @GetMapping(registration)
     public String registration(Model model) {
         model.addAttribute("userForm", new User());
-        return "/registration";
+        return registration;
     }
 
-    @PostMapping("/registration")
+    @PostMapping(registration)
     public String registryUser(@ModelAttribute("userForm") User userForm,
                                Model model, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/registration";
+            return registration;
         }
         if (!userService.saveUser(userForm)) {
             model.addAttribute("usernameError", "User with such username already exists.");
-            return "/registration";
+            return registration;
         }
         return "redirect:/";
     }

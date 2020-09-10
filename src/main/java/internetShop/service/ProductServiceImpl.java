@@ -1,7 +1,7 @@
 package internetShop.service;
 
-import internetShop.dao.ProductDao;
 import internetShop.entity.product.Product;
+import internetShop.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -9,46 +9,41 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private ProductDao productDao;
-
     @Autowired
-    public void setProductDao(ProductDao productDao) {
-        this.productDao = productDao;
-    }
+    private ProductRepository productRepository;
 
     @Override
-    public Product getProduct(Long id) {
-        return productDao.read(id);
+    public Optional<Product> getProduct(Long id) {
+        return productRepository.findById(id);
     }
 
     @Override
     public Product getProduct(String name) {
-        return productDao.findByName(name);
+        return productRepository.findByName(name);
     }
 
     @Override
     public List<Product> getProducts() {
-        return productDao.findAll();
+        return productRepository.findAll();
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
     public void saveProduct(Product product) {
         if (Objects.isNull(product.getId())) {
-            productDao.create(product);
-        } else {
-            productDao.update(product);
+            productRepository.save(product);
         }
     }
 
     @Transactional
     @Override
     public void deleteProduct(Long id) {
-        productDao.delete(id);
+        productRepository.deleteById(id);
     }
 }
 

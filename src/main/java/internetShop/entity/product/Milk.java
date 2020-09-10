@@ -13,8 +13,8 @@ public class Milk extends Product {
     @Setter
     private double fatContent;
 
-    public Milk(String name, long price, Category category, double fatContent) {
-        super(name, price, category);
+    public Milk(String name, long price, /*Category category,*/ double fatContent) {
+        //super(name,price);
         this.fatContent = fatContent;
     }
 }

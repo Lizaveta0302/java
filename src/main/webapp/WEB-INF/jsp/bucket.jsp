@@ -6,14 +6,15 @@
 
 <ui:html title="Internet Shop">
     <div style="margin: auto">
-        <h3>${pageContext.request.userPrincipal.name}</h3>
+        <h3 style="text-align: center">${pageContext.request.userPrincipal.name}</h3>
         <sec:authorize access="isAuthenticated()">
-            <h4><a href="/bucket">My bucket</a></h4>
+            <h4 style="text-align: center">My bucket</h4>
             <ul style="list-style-type: none">
                 <c:forEach var="product" items="${bucket}">
-                    <li>
+                    <li style="text-align: center">
                         <c:out value="${fn:toUpperCase(product.name)}"/>
-                        <c:out value="${fn:toUpperCase(product.country)}"/>
+                        <c:out value="${fn:toUpperCase(product.price)}"/>
+                        <c:out value="${fn:toUpperCase(product.country.name)}"/>
                     </li>
                 </c:forEach>
             </ul>

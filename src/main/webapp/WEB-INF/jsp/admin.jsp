@@ -22,7 +22,7 @@
                         </c:forEach>
                     </td>
                     <td>
-                        <form action="${pageContext.request.contextPath}/admin" method="post">
+                        <form action="${pageContext.request.contextPath}/admin/deleteUser" method="post">
                             <input type="hidden" name="id" value="${user.id}">
                             <button type="submit">Delete</button>
                         </form>
@@ -30,6 +30,6 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="/">Home</a>
+        <a href="/">Go Home</a>
     </div>
 </ui:html>
