@@ -1,7 +1,7 @@
 package internetShop.controller;
 
 import internetShop.entity.User;
-import internetShop.service.UserServiceImpl;
+import internetShop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +16,7 @@ public class RegistrationController {
     private static final String registration = "/registration";
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
 
     @GetMapping(registration)
     public String registration(Model model) {
