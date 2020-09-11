@@ -1,20 +1,14 @@
 package internetShop.entity.product;
 
-import internetShop.entity.category.Category;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString(callSuper = true)
 public class Milk extends Product {
-
-    private static final long serialVersionUID = -9042481779980318403L;
-    @Getter
-    @Setter
     private double fatContent;
-
-    public Milk(String name, long price, /*Category category,*/ double fatContent) {
-        //super(name,price);
-        this.fatContent = fatContent;
-    }
 }
