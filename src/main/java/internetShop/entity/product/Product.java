@@ -8,16 +8,14 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Accessors(chain = true)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Product extends internetShop.entity.Entity {
 
     private String name;
