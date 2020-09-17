@@ -5,6 +5,7 @@ import internetShop.entity.bucket.Bucket;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -14,23 +15,19 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Accessors(chain = true)
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_product")
-    private Long id;
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Product extends internetShop.entity.Entity {
 
     private String name;
 
     private double price;
 
-    //private Category category;
-
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_country")
     private Country country;
 
+    @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_bucket")
     private Bucket bucket;

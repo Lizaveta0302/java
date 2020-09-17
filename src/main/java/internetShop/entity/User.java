@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class User implements UserDetails {
     private String password;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_bucket", referencedColumnName = "id_bucket")
+    @JoinColumn(name = "id_bucket", referencedColumnName = "id")
     private Bucket bucket;
 
     @ManyToMany(fetch = FetchType.EAGER)
