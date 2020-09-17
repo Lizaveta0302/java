@@ -14,7 +14,9 @@
             <h4><a href="/bucket/${pageContext.request.userPrincipal.name}">My bucket</a></h4>
             <h4><a href="/logout">Logout</a></h4>
         </sec:authorize>
-        <h4><a href="/admin/adminPage">Admin Page</a></h4>
+        <sec:authorize access="hasAuthority('ROLE_ADMIN')">
+            <h4><a href="/admin/adminPage">Admin Page</a></h4>
+        </sec:authorize>
         <h4><a href="/products/listProducts">Products page</a></h4>
     </div>
 </ui:html>

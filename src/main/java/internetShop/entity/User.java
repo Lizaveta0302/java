@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
 import javax.persistence.Entity;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +33,12 @@ public class User implements UserDetails {
     @JoinColumn(name = "id_bucket", referencedColumnName = "id")
     private Bucket bucket;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "users_id"),
+            inverseJoinColumns = @JoinColumn(name = "roles_id_role")
+    )
     private List<Role> roles;
 
     @Override

@@ -23,7 +23,7 @@ public class Role implements GrantedAuthority {
 
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", cascade = CascadeType.MERGE)
     private List<User> users;
 
     public Role(Long id, String name) {
