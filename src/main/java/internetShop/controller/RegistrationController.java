@@ -15,8 +15,12 @@ public class RegistrationController {
 
     private static final String registration = "/registration";
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(registration)
     public String registration(Model model) {

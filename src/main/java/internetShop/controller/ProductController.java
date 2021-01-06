@@ -13,8 +13,13 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    @Autowired
+    private static final String redirect = "redirect:/products/listProducts";
     private ProductService productService;
+
+    @Autowired
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping("/listProducts")
     public String products(Model model) {
@@ -23,15 +28,15 @@ public class ProductController {
         return "products";
     }
 
-    @GetMapping("/deleteProduct/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
-        return "redirect:/products/listProducts";
+        return redirect;
     }
 
     @PostMapping("/addProduct")
     public String add(@ModelAttribute("product") Product product) {
         productService.saveProduct(product);
-        return "redirect:/products/listProducts";
+        return redirect;
     }
 }

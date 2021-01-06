@@ -8,5 +8,8 @@
     <label for="price">Input price:</label>
     <input type="text" id="price" name="price">
     <br>
+    <label for="fatContent">Input fatContent:</label>
+    <input type="text" id="fatContent" name="fatContent">
+    <br>
     <button type="submit">Save</button>
 </form>

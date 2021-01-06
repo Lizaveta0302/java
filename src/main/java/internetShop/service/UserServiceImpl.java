@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Autowired
     @PersistenceContext
     private EntityManager em;
 
@@ -87,10 +88,12 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         user.setUsername(user.getUsername());
         user.setRoles(Collections.singletonList(new Role(1L, "ROLE_USER")));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
         return true;
     }
 
+    @Transactional
     public void deleteUser(Long id) {
         if (userRepository.findById(id).isPresent()) {
             userRepository.deleteById(id);

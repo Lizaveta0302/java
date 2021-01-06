@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/", "/products/listProducts", "/registration").permitAll()
+                .antMatchers("/", "/products/listProducts", "/registration", "/greeting").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -45,6 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll()
                 .logoutSuccessUrl("/");
+        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/error");
     }
 
     @Override

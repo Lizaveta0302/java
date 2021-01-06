@@ -16,7 +16,7 @@ public class Warehouse {
 
     @ExpiredProduct(enabled = false) //if true -> Expired date will not be verified
     public void addProductToWarehouse(Product product, int count) {
-        if(ExpiredProductAnnotationAnalyzer.checkExpiredProduct(product, count)){
+        if (ExpiredProductAnnotationAnalyzer.checkExpiredProduct(product, count)) {
             store.put(product, count);
         }
     }

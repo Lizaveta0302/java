@@ -5,7 +5,6 @@ import internetShop.entity.category.Category;
 import internetShop.entity.product.Product;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -13,7 +12,7 @@ import java.util.Objects;
 public class ExpiredProductAnnotationAnalyzer {
 
     public static Boolean checkExpiredProduct(Product product, int count) {
-        if (checkAnnotationValue()) {
+        if (CustomAnnotationHandler.checkAnnotationValue(Warehouse.class, ExpiredProduct.class)) {
             return true;
         } else {
             String expiredDate = null;
@@ -37,25 +36,6 @@ public class ExpiredProductAnnotationAnalyzer {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-        return false;
-    }
-
-    private static Boolean checkAnnotationValue() {
-        try {
-            Class<Warehouse> warehouseClass = Warehouse.class;
-            for (Method method : warehouseClass.getMethods()) {
-                if (method.isAnnotationPresent(ExpiredProduct.class)) {
-                    try {
-                        ExpiredProduct methodAnnotation = method.getAnnotation(ExpiredProduct.class);
-                        return methodAnnotation.enabled();
-                    } catch (Throwable ex) {
-                        ex.printStackTrace();
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return false;
     }

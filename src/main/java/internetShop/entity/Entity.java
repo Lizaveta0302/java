@@ -13,6 +13,6 @@ import javax.persistence.MappedSuperclass;
 @Accessors(chain = true)
 public abstract class Entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 }
