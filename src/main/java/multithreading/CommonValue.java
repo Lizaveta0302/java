@@ -1,9 +1,6 @@
 package multithreading;
 
-import lombok.Data;
-import lombok.Getter;
 import lombok.Synchronized;
-import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.HashMap;

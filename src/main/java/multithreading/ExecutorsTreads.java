@@ -13,7 +13,7 @@ public class ExecutorsTreads {
     }
 
     public Runnable task1() {
-        Runnable task1 = () -> {
+        return () -> {
             System.out.println(Thread.currentThread().getName() + " execute task1");
             try {
                 TimeUnit.SECONDS.sleep(2);
@@ -21,11 +21,10 @@ public class ExecutorsTreads {
                 e.printStackTrace();
             }
         };
-        return task1;
     }
 
-    public Callable task2() {
-        Callable<Integer> task2 = () -> {
+    public Callable<Integer> task2() {
+        return () -> {
             System.out.println(Thread.currentThread().getName() + " execute task2");
             try {
                 TimeUnit.SECONDS.sleep(2);
@@ -34,6 +33,5 @@ public class ExecutorsTreads {
             }
             return 123;
         };
-        return task2;
     }
 }
