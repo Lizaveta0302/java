@@ -2,7 +2,6 @@ package collections.map;
 
 import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class MyMapTest {
 
@@ -13,9 +12,9 @@ class MyMapTest {
         map.put("sd", 1);
         map.put("cds", 2);
         map.put("cdsf", 1);
-        assertEquals(map.get("sd"), 1);
+        assert (map.get("sd").equals(1));
 
-        assertEquals(map.get("cds"), 2);
+        assert (map.get("cds").equals(2));
 
     }
 

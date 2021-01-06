@@ -17,8 +17,21 @@ public class InsertionSort {
         return arr;
     }
 
+    public static int[] insertion(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int current = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] < current) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = current;
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
         int[] arr = {3, 56, 8, 9, 2, 4, 9};
-        System.out.println(Arrays.toString(insertionSort(arr)));
+        System.out.println(Arrays.toString(insertion(arr)));
     }
 }

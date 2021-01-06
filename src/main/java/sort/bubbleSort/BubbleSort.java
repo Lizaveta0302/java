@@ -18,8 +18,22 @@ public class BubbleSort {
         return arr;
     }
 
+    public static int[] bubble(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int y = i; y < arr.length; y++) {
+                if (arr[i] >= arr[y]) {
+                    int tmp = arr[i];
+                    arr[i] = arr[y];
+                    arr[y] = tmp;
+                }
+            }
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
-        int[] arr = {1, 3, 8, 6, 9, 4, 32, 5};
-        System.out.println(Arrays.toString(bubbleSort(arr)));
+        int[] arr = {10, 3, 8, 6};
+        System.out.println(Arrays.toString(bubble(arr)));
     }
 }

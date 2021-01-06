@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class MyArrayListImplementation<T> {
     private static final int DEFAULT_CAPACITY = 5;
     private int size = 0;
-    private Object elements[];
+    private Object[] elements;
 
     public MyArrayListImplementation() {
         elements = new Object[DEFAULT_CAPACITY];

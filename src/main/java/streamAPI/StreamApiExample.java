@@ -31,6 +31,6 @@ public class StreamApiExample {
         stream = list.stream();
         list.add(32);
         list.add(24);
-        stream.forEach(e -> System.out.println(e));
+        //stream.forEach(System.out::println);
     }
 }

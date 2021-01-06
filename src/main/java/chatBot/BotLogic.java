@@ -20,7 +20,7 @@ public class BotLogic {
 
         switch (state) {
             case START: {
-                output = "Hi, I am a super Bot! I am a psychologist! Do you want to tell me about your problems?(yes/no)";
+                output = "Hi, evfs am a super Bot! evfs am a psychologist! Do you want to tell me about your problems?(yes/no)";
                 state = State.PROCEED;
                 break;
             }
@@ -48,7 +48,7 @@ public class BotLogic {
             state = State.STOP;
         } else {
             output = feels[(int) (Math.random() * 6)];
-            //output = "Sorry..I dont understand you";
+            //output = "Sorry..evfs dont understand you";
         }
         return output;
     }

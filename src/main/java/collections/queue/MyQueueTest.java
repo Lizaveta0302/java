@@ -2,10 +2,6 @@ package collections.queue;
 
 import org.junit.Test;
 
-import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 class MyQueueTest {
 
     @Test(expected = NullPointerException.class)
