@@ -1,29 +1,10 @@
-package test;
+package tasks.leetCode.week2;
 
-import java.io.UnsupportedEncodingException;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Main {
-
-    public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-
-        MyLinkedList list = new MyLinkedList();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
-
-        list.reverseRecursively();
-
-        System.out.println(list);
-        //duplicateCharacterInStringWithMap("Programmer");
-
-        int k = 5;
-        k = (++k) + (++k);
-        System.out.println(k);
-    }
+public class TasksSolution {
 
     public static void duplicateCharacterInString(String str) {
         char[] arr = str.toCharArray();
@@ -99,6 +80,7 @@ public class Main {
         }
         return reverse;
     }
+
     private static int fibb2(int n) {
 
         int n1 = 0;
