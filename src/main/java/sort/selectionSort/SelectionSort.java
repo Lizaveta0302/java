@@ -48,9 +48,6 @@ public class SelectionSort {
     public static void main(String[] args) {
         int[] arr = new int[]{3, 2, 5, 6, 6, 4, 44, 4, 4, 7};
         //System.out.println(Arrays.toString(selection(arr)));
-
-
         System.out.println(Arrays.toString(arr));
-
     }
 }
